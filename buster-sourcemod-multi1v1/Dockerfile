@@ -40,7 +40,7 @@ RUN set -x \
 	   } > "${HOMEDIR}/${STEAMAPP}_update.txt" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" "${HOMEDIR}/${STEAMAPP}_update.txt" \	
-	&& rm -rf /var/lib/apt/lists/* \
+	&& rm -rf /var/lib/apt/lists/*
 
 # Server config env
 ENV SRCDS_FPSMAX=300 \
