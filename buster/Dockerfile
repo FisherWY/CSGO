@@ -17,15 +17,15 @@ RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
 		wget=1.20.1-1.1 \
-		ca-certificates=20190110 \
+		ca-certificates=20200601~deb10u2 \
 		lib32z1=1:1.2.11.dfsg-1 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& wget --max-redirect=30 "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& { \
 		echo '@ShutdownOnFailedCommand 1'; \
 		echo '@NoPromptForPassword 1'; \
-		echo 'login anonymous'; \
 		echo 'force_install_dir '"${STEAMAPPDIR}"''; \
+		echo 'login anonymous'; \
 		echo 'app_update '"${STEAMAPPID}"''; \
 		echo 'quit'; \
 	   } > "${HOMEDIR}/${STEAMAPP}_update.txt" \
@@ -40,6 +40,7 @@ ENV SRCDS_FPSMAX=300 \
 	SRCDS_CLIENT_PORT=27005 \
 	SRCDS_NET_PUBLIC_ADDRESS="0" \
 	SRCDS_IP="0" \
+	SRCDS_LAN="0" \
 	SRCDS_MAXPLAYERS=14 \
 	SRCDS_TOKEN=0 \
 	SRCDS_RCONPW="changeme" \
