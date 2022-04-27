@@ -16,12 +16,21 @@ function installCSGO() {
     bash ${STEAMCMDDIR}/steamcmd.sh \
         +force_install_dir ${CSGODIR} \
         +login anonymous \
-        +app_update 740 \
+        +app_update ${CSGOAPPID} \
         +quit
+}
+
+# 写入server.cfg文件
+function writeCFG() {
+    echo -e \
+        "sv_setsteamaccount \"${STEAMACCOUNT}\"\nhostname \"${SERVER_HOSTNAME}\"\nrcon_password \"${RCON_PASSWORD}\"\nsv_password \"${SV_PASSWORD}\"\n" \
+        > ${CSGODIR}/csgo/cfg/server.cfg
 }
 
 # 主要流程
 installSteamcmd
 echo -e "Steamcmd安装完成"
 installCSGO
-echo -e "安装完成"
+echo -e "CSGO安装完成"
+writeCFG
+echo -e "server.cfg写入完成"

@@ -21,7 +21,6 @@ function update() {
 # 启动服务器
 function start() {
     ${CSGODIR}/srcds_run \
-        -debug \
         -game ${CSGOAPP} \
         -console \
         -usercon \

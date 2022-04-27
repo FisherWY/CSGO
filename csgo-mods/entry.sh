@@ -27,7 +27,6 @@ function update() {
 function start() {
     if [ "${AUTHKEY}" == "NONE" ];then
         ${CSGODIR}/srcds_run \
-            -debug \
             -game ${CSGOAPP} \
             -console \
             -usercon \
@@ -38,7 +37,6 @@ function start() {
             +map ${MAP}
     else
         ${CSGODIR}/srcds_run \
-            -debug \
             -game ${CSGOAPP} \
             -console \
             -usercon \
